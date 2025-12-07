@@ -68,7 +68,7 @@ public class Main{
         bw.close();
 
 
-#1181
+#1181 >> 코드가 비효율적임. 좀 더 효율적인 코드 학습 필요
 
 import java.io.*;
 import java.util.*;
