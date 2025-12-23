@@ -33,3 +33,46 @@ public class Main {
         bw.close();  
     }
 }
+
+#10814
+
+import java.io.*;
+import java.util.*;
+
+class Join{
+	int age;
+	String name;
+	
+	Join(int age, String name){
+		this.age = age;
+		this.name = name;
+	}
+}
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+       
+        int num = Integer.parseInt(br.readLine());
+       
+        Join[] person = new Join[num];
+        for(int i=0;i<num;i++) {
+        	StringTokenizer st = new StringTokenizer(br.readLine());
+        	int age = Integer.parseInt(st.nextToken());
+        	String name = st.nextToken();
+        	
+        	person[i] = new Join(age, name);
+        }
+        
+        //Arrays.sort(person); -> error!!
+        
+        Arrays.sort(person, (a,b)-> Integer.compare(a.age, b.age));
+        
+        for(int i=0;i<num;i++) {
+        		bw.write(person[i].age+" "+person[i].name+"\n");
+        }
+        
+        bw.flush(); 
+        bw.close();  
+    }
+}
