@@ -78,12 +78,47 @@ public class Line_up {
 
 
 //No. 10814
-public class Old_sort {
-	public static void main(String[] args) {
-		
+import java.util.*;
+
+//class를 만들어서 입력받은 정보 값(나이, 이름)을 관리해야  함
+class people{
+	int age; 
+	String name;
+	public people(int age, String name) {
+		this.age=age;
+		this.name=name;
 	}
 }
 
+public class Old_sort {
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		List<people> list=new ArrayList<>();
+		// people 클래스를 이용하여 만든 객체를 담는 list 생성
+		
+		int a=sc.nextInt();
+		
+		for(int i=0;i<a;i++) {
+			int age=sc.nextInt();
+			String name=sc.next();
+			list.add(new people(age, name));
+		}
+		
+		Collections.sort(list, new Comparator<people>() {
+			@Override
+			public int compare(people p1, people p2) {
+				return p1.age-p2.age;
+			}
+		});
+		// 람다 표현식이 뭔지 공부 필요할 것 같음. 더해서 comparator과 @Override도... 
+		// 참고한 블로그(https://velog.io/@dev-easy/Java-Map%EC%9D%84-Key-Value%EB%A1%9C-%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0)에 람다표현식으로 sort를 진행하는 방식이 나와있는데... 이해가 안감...
+		
+		for(people p:list) {
+			System.out.println(p.age+" "+p.name);
+		}
+	}
+}
 
 //No. 1427  
 public class SortInside {
@@ -119,7 +154,35 @@ public class ACT_Shom {
 
 //No. 7568
 public class Weight {
-	public static void main(String[] args) {
+	import java.util.*;
+
+	class human{
+		int weight;
+		int tall;
 		
+		public human(int weight, int tall) {
+			this.weight=weight;
+			this.tall=tall;
+		}
+	}
+
+	public class Weight {
+		public static void main(String[] args) {
+			Scanner sc=new Scanner(System.in);
+			List<human> list=new ArrayList<>();
+			
+			int num=sc.nextInt();
+			
+			for(int i=0;i<num;i++) {
+				int weight=sc.nextInt();
+				int tall=sc.nextInt();
+				list.add(new human(weight, tall));
+			}
+			
+			int[] result=new int[num];
+			
+			
+			
+		}
 	}
 }
