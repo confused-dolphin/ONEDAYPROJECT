@@ -137,3 +137,43 @@ public class Main {
 	     bw.close();
     }
 }
+
+#1094
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	  
+	     int num = Integer.parseInt(br.readLine());
+	     int[] n = {64, 32,16,8,4,2,1};
+	     int max = n[0], count = 0, sum = 0, count_result = 0;
+	     
+     	 for(int i=0;i<7;i++) {
+     		 if(num>=n[i]) {
+     			 max = n[i];
+     			 count = i;
+     			 break;
+     		 }
+     	 }
+     	 
+     	 sum = sum + max;
+     	 for(int i=count+1;i<7;i++) {
+     		 if(sum + n[i] < num) {
+     			sum = sum + n[i];
+     			count_result += 1;
+     		 }
+     		 else if(sum + n[i] > num) {
+     			 continue;
+     		 }
+     		else if(sum + n[i] == num) {
+     			 count_result += 1;
+    			 break;
+    		 }
+     	 }
+     	  
+     	 bw.write(count_result+1+"\n");
+	     bw.flush();
+	     bw.close();
+    }
+}
