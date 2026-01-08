@@ -97,3 +97,43 @@ public class Main {
 	     bw.close();
     }
 }
+
+#7785
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	     
+	     Set<String> employee = new HashSet<>();
+	     
+	     int num = Integer.parseInt(br.readLine());
+	     
+     	 for(int i=0;i<num;i++) {
+     		 
+     		 String[] tokens = br.readLine().split(" ");
+     		 String name = tokens[0];
+     		 String el = tokens[1];
+     		 
+     		 if(el.equals("enter")) 
+     		 {
+     			 employee.add(name);
+     		 }
+     		 else
+     		 {
+     			 employee.remove(name);
+     		 }
+     	 }
+     	 
+     	List<String> re_employee = new ArrayList<>(employee);
+        Collections.sort(re_employee, Collections.reverseOrder());
+     	
+     	for (String item : re_employee) {
+            bw.write(item);
+            bw.write("\n");
+        }
+     	
+	     bw.flush();
+	     bw.close();
+    }
+}
