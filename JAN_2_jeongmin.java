@@ -56,3 +56,44 @@ public class Main {
 	     bw.close();
     }
 }
+
+#1475
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	     
+	     List<Integer> lst = new ArrayList<>();
+	     
+	     int room = Integer.parseInt(br.readLine());
+	     int[] c = new int[9];
+
+	     while(room>0) {
+	    	 int con = room%10;
+	    	 room = room/10;
+	    	 if(con == 6 || con == 9) {
+	    		 con = 6;
+	    		 c[con]= c[con] + 1;
+	    	 }
+	    	 else
+	    		 c[con]= c[con] + 1;
+	     }
+	     
+	     int max = c[0];
+	     
+	     if(c[6]%2 ==0)
+	    	 c[6] = c[6]/2;
+	     else
+	    	 c[6] = (c[6]+1)/2;
+	     
+	     for(int i=0;i<9;i++) {
+	    	 if(max < c[i])
+	    		 max = c[i];
+	     }
+	     
+	     bw.write(max+"\n");
+	     bw.flush();
+	     bw.close();
+    }
+}
