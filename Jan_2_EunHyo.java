@@ -1,4 +1,3 @@
-package oneday_Jan2;
 import java.util.*;
 import java.io.*;
 
@@ -209,7 +208,19 @@ public class Year_count {
 
 
 // No. 9655    돌게임
+import java.util.*;
 
+public class Stone_game {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int a=sc.nextInt();
+		
+		if(a%2==1) System.out.println("SK");
+		else System.out.println("CY");
+		
+		sc.close();
+	}
+}
 
 
 // No. 17478  재귀함수가 뭔가요? 
@@ -250,5 +261,40 @@ public class What_is {
 
 
 // No. 1439    뒤집기
+import java.io.*;
 
+public class Flip {
+	public static void main(String[] args)throws IOException{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		int a=0;
+		int b=0;
+		char first=' ';
+		
+		String s=br.readLine();
+		
+		outer: for(int i=0;i<s.length();i++) {
+			first=s.charAt(i);
+			int count=i;
+			while(true) {
+				if(count==s.length()) break;
+				else if(first!=s.charAt(count)) break ;
+				else {
+					count++; 
+					continue;
+				}
+			}
+			if(first=='0') a++;
+			else if(first=='1') b++;
+			
+			i=count-1;
+		}
+		
+		bw.write(String.valueOf(Math.min(a, b)));
+		bw.flush();
+		bw.close();
+		br.close();
+	}
+}
 
