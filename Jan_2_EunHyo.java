@@ -20,57 +20,6 @@ public class fect_0_count {
 
 
 // No. 11723  집합
-public class Number_set {
-	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		long a=sc.nextLong();
-		long sum=0;
-		
-		for(int i=0;i <=a; i++) {
-			sum+=i;
-			if(sum>a) {
-				System.out.print(i-1); 					
-				break;
-			}
-			else if(sum==a) {
-				System.out.print(i); 
-				break;
-			}
-		}
-		sc.close();
-	}
-}
-
-
-// No. 1475    방 번호
-public class RoomNumber {
-	public static void main(String[] args) {
-		Scanner sc=new Scanner(System.in);
-		String room=sc.nextLine();
-		int[] set=new int[10];
-		
-		int result=0;
-		
-		for(int i=0;i<room.length();i++) {
-			int n=Integer.valueOf(room.charAt(i))-48;
-			set[n]+=1;
-		}
-		
-		for(int i=0;i<10;i++) {
-			if (i==6||i==9) {
-				int sum=set[6]+set[9]+1;
-				if(result<sum/2) result=sum/2;
-			}
-			else if(result<set[i]) result=set[i];
-		}
-		
-		System.out.println(result);
-		sc.close();
-	}
-}
-
-
-// No. 1789    수들의 합
 public class set_S {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
@@ -116,6 +65,57 @@ public class set_S {
 		bw.flush();
 		bw.close();
 		br.close();
+	}
+}
+
+
+// No. 1475    방 번호
+public class RoomNumber {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String room=sc.nextLine();
+		int[] set=new int[10];
+		
+		int result=0;
+		
+		for(int i=0;i<room.length();i++) {
+			int n=Integer.valueOf(room.charAt(i))-48;
+			set[n]+=1;
+		}
+		
+		for(int i=0;i<10;i++) {
+			if (i==6||i==9) {
+				int sum=set[6]+set[9]+1;
+				if(result<sum/2) result=sum/2;
+			}
+			else if(result<set[i]) result=set[i];
+		}
+		
+		System.out.println(result);
+		sc.close();
+	}
+}
+
+
+// No. 1789    수들의 합
+public class Number_sum {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		long a=sc.nextLong();
+		long sum=0;
+		
+		for(int i=0;i <=a; i++) {
+			sum+=i;
+			if(sum>a) {
+				System.out.print(i-1); 					
+				break;
+			}
+			else if(sum==a) {
+				System.out.print(i); 
+				break;
+			}
+		}
+		sc.close();
 	}
 }
 
@@ -208,8 +208,6 @@ public class Year_count {
 
 
 // No. 9655    돌게임
-import java.util.*;
-
 public class Stone_game {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
@@ -261,8 +259,6 @@ public class What_is {
 
 
 // No. 1439    뒤집기
-import java.io.*;
-
 public class Flip {
 	public static void main(String[] args)throws IOException{
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
