@@ -118,20 +118,14 @@ public class Main {
 	     int num = Integer.parseInt(br.readLine());
 	     
      	 for(int i=0;i<num;i++) {
-     		 
      		 String[] tokens = br.readLine().split(" ");
      		 String name = tokens[0];
      		 String el = tokens[1];
      		 
      		 if(el.equals("enter")) 
-     		 {
      			 employee.add(name);
-     		 }
      		 else
-     		 {
      			 employee.remove(name);
-     		 }
-     		 
      	 }
      	 
      	List<String> re_employee = new ArrayList<>(employee);
@@ -169,7 +163,6 @@ public class Main {
      	 for(int i=count+1;i<7;i++) {
      		 if(sum + n[i] < num) {
      			sum = sum + n[i];
-     			//bw.write("sum: "+ sum+"\n");
      			count_result += 1;
      		 }
      		 else if(sum + n[i] > num) {
@@ -195,8 +188,7 @@ public class Main {
 	     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	  
 	     String[] tokens = br.readLine().split(" ");
- 		 
- 		 
+ 		
 	     int num_E = Integer.parseInt(tokens[0]);
 	     int num_S = Integer.parseInt(tokens[1]);
 	     int num_M = Integer.parseInt(tokens[2]);
@@ -221,12 +213,10 @@ public class Main {
 		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	  
-	    
 	     int num = Integer.parseInt(br.readLine());
 	     int name = 0;
 	     
 	     while(true) {
-	    	 
 	    	 if(num - 3 > 0) {
 	    		 num = num - 3;
 	    		 name++;
@@ -295,7 +285,6 @@ public class Main {
 	     String num = br.readLine();
 	     char before, now; 
 	     int count_0 = 0, count_1 = 0;
-	     
 	     
 	     for(int k=0;k<num.length()-1;k++) {
 	    	 before = num.charAt(k);
