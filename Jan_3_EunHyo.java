@@ -2,6 +2,7 @@ package oneday_Jan3;
 import java.io.*;
 import java.util.*;
 
+
 // No. 11004  K번째 수
 public class Kth_num {
 	public static void main(String[] args) throws IOException{
@@ -144,11 +145,66 @@ public class Algorism {
 
 
 // No. 2740  행렬 곱셈
-
+public class matrix_mul {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int N=sc.nextInt();
+		int M=sc.nextInt();
+		int[][] A=new int[N][M];
+		
+		for(int i=0;i<N;i++) {
+			for(int j=0;j<M;j++) {
+				A[i][j]=sc.nextInt();
+			}
+		}
+		
+		M=sc.nextInt();
+		int K=sc.nextInt();
+		int[][] B=new int[M][K];
+		
+		for(int i=0;i<M;i++) {
+			for(int j=0;j<K;j++) {
+				B[i][j]=sc.nextInt();
+			}
+		}
+		
+		int[][] result=new int[N][K];
+		for(int i=0;i<N;i++) {
+			for(int j=0;j<K;j++) {
+				for(int k=0;k<M; k++) {
+					result[i][j]+=A[i][k]*B[k][j];
+				}
+				System.out.print(result[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+}
 
 
 // No. 14916  거스름돈
-
+public class Charge {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int N=sc.nextInt();
+		int result=N/5;
+		int M=N%5;
+		
+		if(M%2==0) result+=M/2;
+		while(M%2!=0) {
+			result--;
+			M+=5;
+			if(M%2==0) result+=M/2;
+			if(M>N) {
+				result=-1;
+				break;
+			}
+		}
+		System.out.println(result);
+		sc.close();
+	}
+}
 
 
 // No.2161  카드1
