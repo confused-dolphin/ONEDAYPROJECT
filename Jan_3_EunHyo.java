@@ -208,13 +208,70 @@ public class Charge {
 
 
 // No.2161  카드1
-
+public class Card_1 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int N=sc.nextInt();
+		Deque<Integer> dq=new LinkedList<>();
+		
+		for(int i=1;i<=N;i++) {
+			dq.add(i);
+		}
+		
+		while(!dq.isEmpty()) {
+			System.out.print(dq.removeFirst()+" ");
+			
+			if(!dq.isEmpty()) {
+				int a=dq.removeFirst();
+				dq.add(a);
+			}
+		}
+		sc.close();
+	}
+}
 
 
 // No.1543  문서 검색
-
+public class Document_search {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		String x=sc.nextLine().trim();
+		String y=sc.nextLine().trim();
+		
+		int result=0;
+		int len=0;
+		
+		while(true) {
+			if(x.indexOf(y, len)!=-1) {
+				len=x.indexOf(y, len)+y.length();
+				result++;
+			}
+			
+			else break;
+		}
+		
+		System.out.println(result);
+	}
+}
 
 
 // No. 10867  중복 빼고 정렬하기
-
+public class Sort_without {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int N=sc.nextInt();
+		HashSet<Integer> arr=new HashSet<>();
+		
+		for(int i=0;i<N;i++) arr.add(sc.nextInt());
+		
+		List<Integer> result=new ArrayList<>(arr);
+		Collections.sort(result);
+		
+		for(int i=0;i<result.size();i++) System.out.print(result.get(i)+" ");
+		sc.close();
+	}
+}
 
