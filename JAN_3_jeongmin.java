@@ -313,3 +313,32 @@ public class task_12 {
 	     bw.close();
     }
 }
+
+#10867
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	     
+	     HashSet<Integer> s = new HashSet<>();
+	     
+	     int num = Integer.parseInt(br.readLine());
+	     String str = br.readLine();
+	     String[] tokens = str.split(" ");
+	     
+	     for(int i=0;i<num;i++) {
+	    	s.add(Integer.parseInt(tokens[i]));
+	    }
+
+	     List<Integer> arr = new ArrayList<>(s);
+		Collections.sort(arr);
+		
+		for(int i : arr) {
+			bw.write(i+" ");
+		}
+
+	     bw.flush();
+	     bw.close();
+    }
+}
