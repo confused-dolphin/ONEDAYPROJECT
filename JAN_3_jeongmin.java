@@ -280,3 +280,36 @@ public class Main {
 	     bw.close();
     }
 }
+
+#1543----> 도저히 반례를 못 찾겠어요 !!! 지피티한테도 여러번 물어봤는 데 자꾸 반례가 아닌 것들 만 찾아줘요...ㅜㅜ
+
+public class task_12 {
+	public static void main(String[] args) throws IOException {
+		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	     BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+	     
+	     String s = br.readLine();
+	     String find = br.readLine();
+	     
+	     int count = 0;
+	     int len = find.length();
+	     
+	     while(true) {
+	    	 
+	    	 int id = s.indexOf(find);
+	    	 if(id == -1)
+	    		 break;
+	    	 
+	    	 String front = s.substring(0,id);
+	    	 String back = s.substring(id+len);
+	    	 
+	    	 s = front + back;
+	    	 count++;
+	    	 
+	     }
+	     bw.write(count+"");
+	     bw.flush();
+	     bw.close();
+    }
+}
