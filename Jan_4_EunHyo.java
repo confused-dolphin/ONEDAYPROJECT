@@ -15,11 +15,51 @@ import java.util.*;
 
 
 //No. 13909  창문 닫기
-
+public class Close_window {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		
+		int result=(int)Math.sqrt(n);
+		
+		System.out.println(result);
+		sc.close();
+	}
+}
 
 
 //No. 2669  직사각형 네개의 합집합의 면적 구하기
-
+public class Rectangle {
+	public static void main(String[] args) throws IOException{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		boolean[][] arr=new boolean[100][100];
+		int count=0;
+		
+		for(int i=0;i<4;i++) {
+			StringTokenizer st=new StringTokenizer(br.readLine());
+			int x=Integer.parseInt(st.nextToken());
+			int y=Integer.parseInt(st.nextToken());
+			int a=Integer.parseInt(st.nextToken());
+			int b=Integer.parseInt(st.nextToken());
+			
+			for(int n=x; n<a; n++) {
+				for(int m=y;m<b;m++) {
+					if (arr[n][m]==true) continue;
+					else {
+						arr[n][m]=true;
+						count++;
+					}
+				}
+			}
+		}
+		bw.write(String.valueOf(count));
+		bw.flush();
+		bw.close();
+		br.close();
+	}
+}
 
 
 //No. 1343  폴리오미노
