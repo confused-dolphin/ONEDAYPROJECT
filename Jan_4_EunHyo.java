@@ -7,11 +7,110 @@ import java.util.*;
 
 
 //No. 2822  점수 계산
+class result{
+	int num;
+	int sc;
+	public result(int num, int sc) {
+		this.num=num;
+		this.sc=sc;
+	}
+}
 
+public class Score {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		List<result> list=new ArrayList<>();
+		for(int i=0;i<8;i++) {
+			int x=sc.nextInt();
+			list.add(new result(i, x));
+		}
+		
+		Collections.sort(list, (o1, o2) -> o2.sc - o1.sc);
+		
+		int sum=0;
+		List<Integer> arr=new ArrayList<>();
+		for(int i=0;i<5;i++) {
+			sum+=list.get(i).sc;
+			arr.add(list.get(i).num+1);
+		}
+		
+		Collections.sort(arr);
+		System.out.println(sum);
+		for(int i:arr) {
+			System.out.print(i+" ");
+		}
+	}
+}
 
 
 //No. 8979  올림픽
+class country{
+	String name;
+	int a;
+	int b;
+	int c;
+	public country(String name, int a, int b, int c) {
+		this.name=name;
+		this.a=a;
+		this.b=b;
+		this.c=c;
+	}
+}
 
+public class Olympic {
+	public static void main(String[] args) throws IOException{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		StringTokenizer st=new StringTokenizer(br.readLine());
+		int n=Integer.parseInt(st.nextToken());
+		String flag=st.nextToken();
+		int x=0;
+		int y=0;
+		int z=0;
+		List<country> list=new ArrayList<>();
+		for(int i=0;i<n;i++) {
+			st=new StringTokenizer(br.readLine());
+			String name=st.nextToken();
+			int a=Integer.parseInt(st.nextToken());
+			int b=Integer.parseInt(st.nextToken());
+			int c=Integer.parseInt(st.nextToken());
+			
+			list.add(new country(name, a, b, c));
+			if(flag.equals(name)) {
+				x=a;
+				y=b;
+				z=c;
+			}
+		}
+		int result=1;
+		
+		for(country i:list) {
+			if(i.name.equals(flag)) continue;
+			else {
+				if(x==i.a) {
+					if(y==i.b) {
+						if(z<i.c) {
+							result++;
+						}
+					}
+					else if(y<i.b) {
+						result++;
+					}
+				}
+				else if(x<i.a) {
+					result++;
+				}
+			}
+		}
+		
+		bw.write(String.valueOf(result));
+		bw.flush();
+		bw.close();
+		br.close();
+	}
+}
 
 
 //No. 13909  창문 닫기
@@ -194,4 +293,3 @@ public class Fibonacci {
 		System.out.println(list.get(n));
 	}
 }
-
