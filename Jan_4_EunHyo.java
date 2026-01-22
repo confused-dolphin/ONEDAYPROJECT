@@ -2,11 +2,40 @@ package oneday_Jan4;
 import java.io.*;
 import java.util.*;
 
-//No. 2018  수들의 합5
+// No. 2018  수들의 합5
+// 답은 맞았는데... 98%에서 시간초과 발생ㅠ.ㅠ
+public class Number_sum {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		long n=sc.nextLong();
+		int sum=0;
+		int count=1;
+		int front=1;
+		int end=1;
+		while(front!=n-1) {
+			if(sum<n) {
+				sum+=end;
+				end++;
+			}
+			else if(sum==n) {
+				count++;
+				front+=1;
+				end=front;
+				sum=0;
+			}
+			
+			else if(sum>n){
+				front+=1;
+				end=front;
+				sum=0;
+			}
+		}
+		System.out.println(count);
+	}
+}
 
 
-
-//No. 2822  점수 계산
+// No. 2822  점수 계산
 class result{
 	int num;
 	int sc;
@@ -44,7 +73,7 @@ public class Score {
 }
 
 
-//No. 8979  올림픽
+// No. 8979  올림픽
 class country{
 	String name;
 	int a;
@@ -113,7 +142,7 @@ public class Olympic {
 }
 
 
-//No. 13909  창문 닫기
+// No. 13909  창문 닫기
 public class Close_window {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
@@ -127,7 +156,7 @@ public class Close_window {
 }
 
 
-//No. 2669  직사각형 네개의 합집합의 면적 구하기
+// No. 2669  직사각형 네개의 합집합의 면적 구하기
 public class Rectangle {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
@@ -161,7 +190,7 @@ public class Rectangle {
 }
 
 
-//No. 1343  폴리오미노
+// No. 1343  폴리오미노
 public class Polyomino {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
@@ -177,7 +206,7 @@ public class Polyomino {
 }
 
 
-//No. 9656  돌 게임2
+// No. 9656  돌 게임2
 public class Stone_game {
 	public static void main(String[] args) {
 		Scanner sc=new Scanner(System.in);
@@ -191,7 +220,7 @@ public class Stone_game {
 }
 
 
-//No. 5635  생일
+// No. 5635  생일
 class birth{
 	String name;
 	int year;
@@ -251,7 +280,7 @@ public class Birthday {
 }
 
 
-//No. 11931  수 정렬하기4
+// No. 11931  수 정렬하기4
 public class Num_sort4 {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
@@ -275,7 +304,7 @@ public class Num_sort4 {
 }
 
 
-//No. 10826  피보나치 수4
+// No. 10826  피보나치 수4
 import java.math.BigInteger;
 
 public class Fibonacci {
