@@ -158,12 +158,95 @@ public class Sleep_place {
 
 
 // No. 1417 국회의원 선거 ----------------------------------------
+public class Election {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int x=sc.nextInt();
+		List<Integer> list=new ArrayList<>();
+		for(int i=0;i<n-1;i++) {
+			list.add(sc.nextInt());
+		}
+		
+		int result=0;
+		Collections.sort(list, Collections.reverseOrder());
+		
+		if(n==1) {
+			System.out.println("0");
+		}
+		else {
+			while(x<=list.get(0)) {
+				int a=list.remove(0);
+				x++;
+				a--;
+				result++;
+				list.add(a);
+				Collections.sort(list, Collections.reverseOrder());
+			}
+			
+			System.out.println(result);
+		}
+		sc.close();
+	}
+}
 
 
 //No. 16435 스네이크버드 ----------------------------------------
+public class SnakeBird {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int m=sc.nextInt();
+
+		PriorityQueue<Integer> pq=new PriorityQueue<>();
+		for (int i=0;i<n;i++) {
+			pq.add(sc.nextInt());
+		}
+		
+		while(!pq.isEmpty() && pq.peek() <= m) {
+			m++;
+			pq.poll();
+		}
+		
+		System.out.println(m);
+		sc.close();
+	}
+}
 
 
 //No. 1251 단어 나누기----------------------------------------
+public class Word_sort {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		PriorityQueue<String> pq = new PriorityQueue<>();
+		String s=sc.nextLine();
+		
+		for(int i=1;i<s.length()-1;i++) {
+			for(int j=i+1;j<s.length();j++) {
+				String result="";
+				String a=s.substring(0, i);
+				String b=s.substring(i, j);
+				String c=s.substring(j);
+				
+				for(int x=a.length()-1;x>=0;x--) {
+					result+=a.charAt(x);
+				}
+				
+				for(int x=b.length()-1;x>=0;x--) {
+					result+=b.charAt(x);
+				}
+				
+				for(int x=c.length()-1;x>=0;x--) {
+					result+=c.charAt(x);
+				}
+				
+				pq.add(result);
+			}
+		}
+		System.out.print(pq.peek());
+		sc.close();
+	}
+}
 
 
 //No. 2828 사과 담기 게임 ----------------------------------------
