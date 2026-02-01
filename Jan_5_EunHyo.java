@@ -250,12 +250,144 @@ public class Word_sort {
 
 
 //No. 2828 사과 담기 게임 ----------------------------------------
+public class apple {
+	public static void main(String[] args) throws IOException{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		StringTokenizer st=new StringTokenizer(br.readLine());
+		
+		int n=Integer.parseInt(st.nextToken());
+		int m=Integer.parseInt(st.nextToken());
+		
+		int a=Integer.parseInt(br.readLine());
+		int result=0;
+		int front=1;
+		int end=m;
+		
+		for(int i=0;i<a;i++) {
+			int x=Integer.parseInt(br.readLine());
+			if(x>=front&&x<=end) continue;
+			else if(x>end) {
+				while(end!=x) {
+					front++;
+					end++;
+					result++;
+				}
+			}
+			else if(x<front) {
+				while(front!=x) {
+					front--;
+					end--;
+					result++;
+				}
+			}
+		}
+		
+		bw.write(String.valueOf(result));
+		bw.flush();
+		br.close();
+		bw.close();
+	}
+}
 
 
 //No. 2628 종이자르기 ----------------------------------------
+public class Paper_cut {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int n=sc.nextInt();
+		int m=sc.nextInt();
+		int a=sc.nextInt();
+		
+		List<Integer> wid=new ArrayList<>();
+		List<Integer> len=new ArrayList<>();
+		
+		wid.add(0); wid.add(m);
+		len.add(0); len.add(n);
+		
+		for(int i=0;i<a;i++) {
+			int x=sc.nextInt();
+			int y=sc.nextInt();
+			if(x==0) wid.add(y);
+			else len.add(y);
+		}
+		
+		Collections.sort(wid);
+		Collections.sort(len);
+		
+		int w_max=0;
+		int l_max=0;
+		
+		for(int i=1;i<wid.size();i++) {
+			w_max=Math.max(w_max, wid.get(i)-wid.get(i-1));
+		}
+		
+		for(int i=1;i<len.size();i++) {
+			l_max=Math.max(l_max, len.get(i)-len.get(i-1));
+		}
+		
+		System.out.println(w_max*l_max);
+		sc.close();
+	}
+}
 
 
 //No. 13301 타일 장식물 ----------------------------------------
+public class Tile {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		
+		int n=sc.nextInt();
+		
+		long[] arr=new long[n+1];
+		
+		arr[0]=0;
+		arr[1]=1;
+		
+		for(int i=2;i<n+1;i++) {
+			arr[i]=arr[i-1]+arr[i-2];
+		}
+		
+		long a=arr[n-1]+arr[n];
+		long b=arr[n];
+		System.out.println((arr[n-1]+arr[n])*2+arr[n]*2);
+		sc.close();
+	}
+}
 
 
 //No. 5800 성적 통계 ----------------------------------------
+public class Score_Data {
+	public static void main(String[] args) throws IOException{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		int n=Integer.parseInt(br.readLine());
+		for(int i=0;i<n;i++) {
+			int gap=0;
+			
+			ArrayList<Integer> arr=new ArrayList<>();
+			StringTokenizer st=new StringTokenizer(br.readLine());
+			int x=Integer.parseInt(st.nextToken());
+			for(int a=0;a<x;a++) {
+				int y=Integer.parseInt(st.nextToken());
+				arr.add(y);
+			}
+			
+			Collections.sort(arr);
+			int min=arr.get(0);
+			int max=arr.get(arr.size()-1);
+			for(int a=1;a<arr.size();a++) {
+				gap=Math.max(gap, arr.get(a)-arr.get(a-1));
+			}
+			System.out.printf("Class %d\nMax %d, Min %d, Largest gap %d\n", i+1, max, min, gap);
+		}
+		bw.flush();
+		br.close();
+		bw.close();
+		
+	}
+}
+
