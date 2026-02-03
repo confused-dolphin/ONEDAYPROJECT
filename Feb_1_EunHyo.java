@@ -52,11 +52,56 @@ public class Drainage {
 
 
 //No. 11576 Base Conversion --------------------------------------
-
+public class Base_Conversion {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		
+		StringTokenizer st=new StringTokenizer(br.readLine());
+		int a=Integer.parseInt(st.nextToken());
+		int b=Integer.parseInt(st.nextToken());
+		
+		int m=Integer.parseInt(br.readLine());
+		
+		st=new StringTokenizer(br.readLine());
+		long mid=0;
+		for(int i=0;i<m;i++) {
+			int x=Integer.parseInt(st.nextToken());
+			mid=mid*a+x;
+		}
+		
+		Stack<Integer> stack=new Stack<>();
+		while(mid>0) {
+			stack.push((int)(mid%b));
+			mid/=b;
+		}
+		
+		while(!stack.isEmpty()) System.out.print(stack.pop()+" ");
+		br.close();
+	}
+}
 
 
 //No. 15688 수 정렬하기5 --------------------------------------
-
+public class Num_sort5 {
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int a=Integer.parseInt(br.readLine());
+		ArrayList<Integer> list = new ArrayList<>();
+		
+		for(int i=0;i<a;i++) {
+			list.add(Integer.parseInt(br.readLine()));
+		}
+		
+		Collections.sort(list);;
+		StringBuilder sb = new StringBuilder();
+		
+		for(int i:list) {
+			sb.append(i).append('\n');
+		}
+		System.out.print(sb);
+	}
+}
 
 
 //No. 16395 파스칼의 삼각형 --------------------------------------
